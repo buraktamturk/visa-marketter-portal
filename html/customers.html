@@ -1,0 +1,42 @@
+<div loading-container>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a ui-sref="page.home">Home</a></li>
+      <li class="breadcrumb-item"><a ui-sref="page.customers">Customers</a></li>
+    </ol>
+  </nav>
+    <div class="row">
+        <div class="col-md-8 form-inline">
+            <div class="form-group">
+                <a class="btn btn-primary" href ng-click="ctrl.edit_or_add()">Add Customers</a>
+            </div>
+            <div class="form-group mx-sm-3">
+                <input type="text" class="form-control form-inline" id="search" ng-model="ctrl.search" ng-change="ctrl.init()" placeholder="Search...">
+            </div>
+        </div>
+        <div class="col-md-4 text-right">
+        </div>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">E-Mail</th>
+              <th scope="col" class="text-center">Card Number</th>
+              <th scope="col" class="text-center">Created at</th>
+              <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="customer in ctrl.customers">
+              <th scope="row">{{ customer.id }}</th>
+              <td class="text-center">{{ customer.name }}</td>
+              <td class="text-center"><a href="mailto:{{ user.email }}">{{ customer.email }}</a></td>
+              <td class="text-center">{{ customer.card_number }}</td>
+              <td class="text-center">{{ customer.created_at | date : 'medium' }}</td>
+              <td><button type="button" class="btn btn-outline-primary btn-sm" ng-click="load(ctrl.edit_or_add(customer.id))">Edit</button> <button type="button" class="btn btn-outline-danger btn-sm" ng-click="load(ctrl.delete(customer.id))">Delete</button></td>
+          </tr>
+        </tbody>
+    </table>
+</div>

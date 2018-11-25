@@ -1,0 +1,44 @@
+<div loading-container>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a ui-sref="page.home">Home</a></li>
+      <li class="breadcrumb-item"><a ui-sref="page.campaigns">Campaigns</a></li>
+    </ol>
+  </nav>
+    <div class="row">
+        <div class="col-md-8 form-inline">
+            <div class="form-group">
+                <a class="btn btn-primary" href ng-click="ctrl.edit_or_add()">Add Campaign</a>
+            </div>
+            <div class="form-group mx-sm-3">
+                <input type="text" class="form-control form-inline" id="search" ng-model="ctrl.search" ng-change="ctrl.init()" placeholder="Search...">
+            </div>
+        </div>
+        <div class="col-md-4 text-right">
+        </div>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">Visa Offer ID</th>
+              <th scope="col" class="text-center">Template #</th>
+              <th scope="col" class="text-center">Eligible Users</th>
+              <th scope="col" class="text-center">Created at</th>
+              <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="campaign in ctrl.campaigns">
+              <th scope="row">{{ campaign.id }}</th>
+              <td class="text-center"><a ui-sref="page.campaign_detail({ id: campaign.id })">{{ campaign.name }}</a></td>
+              <td class="text-center">{{ campaign.visa_offer_id }}</td>
+              <td class="text-center">{{ campaign.template_id }}</td>
+              <td class="text-center">{{ campaign.users.length }}</td>
+              <td class="text-center">{{ campaign.created_at | date : 'medium' }}</td>
+              <td><button type="button" class="btn btn-outline-primary btn-sm" ng-click="load(ctrl.edit_or_add(campaign.id))">Edit</button> <button type="button" class="btn btn-outline-danger btn-sm" ng-click="load(ctrl.delete(campaign.id))">Delete</button></td>
+          </tr>
+        </tbody>
+    </table>
+</div>

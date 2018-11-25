@@ -1,0 +1,32 @@
+<div class="fh" loading-container>
+  <div class="fh" loader="!page.user">
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <a class="logo" ui-sref="page.home">VISA MARKETTER</a>
+          </div>
+          <div class="col-md-6 text-right">
+            <span class="small store_name">{{ page.user.name }}</span> <a href class="btn btn-outline-danger btn-sm" ng-click='page.logout()'>Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container page-vh">
+      <div class="row">
+        <div class="col-md-12">
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center mt-3 mb-3">
+            <small>© 2018. Coded with <i style="color:red;" class="fa fa-heart"></i> in Warsaw. <a href="http://hackyeah.pl/" target="_blank">HackYeah.pl</a>.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

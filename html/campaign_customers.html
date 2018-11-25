@@ -1,0 +1,30 @@
+<div loading-container>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a ui-sref="page.home">Home</a></li>
+      <li class="breadcrumb-item"><a ui-sref="page.campaigns">Campaigns</a></li>
+      <li class="breadcrumb-item"><a ui-sref="page.campaign_details({ id: ctrl.datas.id })">{{ ctrl.datas.name }}</a></li>
+
+    </ol>
+  </nav>
+    <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">Email</th>
+              <th scope="col" class="text-center">Status</th>
+              <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in ctrl.datas.users">
+              <th scope="row">{{ $index + 1 }}</th>
+              <td class="text-center">{{ data.customer.name }}</td>
+              <td class="text-center">{{ data.customer.email }}</td>
+              <td class="text-center">{{ data.video.video ? "Ready" : "Pending" }}</td>
+              <td><a ng-if="data.video.video" class="btn btn-outline-primary btn-sm" target="_blank" ng-href="{{ data.video.video.review_link }}">View Video</a></td>
+          </tr>
+        </tbody>
+    </table>
+</div>
